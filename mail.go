@@ -116,25 +116,19 @@ func checkEmail(email string) {
 	s := strings.Split(email, "@") // Разделяем по символу @
 
 	if checkSobaka(email) {
-		fmt.Println("1. OK: ", email, "В имени присутствует символ @")
 
 		if checkDomainSymbols(s[1]) {
-			fmt.Println("2. OK: ", s[1], "Доменная часть не короче 3 символов и не длиннее 256, является набором непустых строк, состоящих из символов a-z 0-9_- и разделенных точкой;")
 
 			if checkBannedSymbols(s[0], s[1]) {
-				fmt.Println("3. OK: ", s[0], s[1], "Каждый компонент доменной части не может начинаться или заканчиваться символом '-'")
 
 				if checkNameSymbols(s[0]) {
-					fmt.Println("4. OK: ", s[0], "Имя (до @) не длиннее 128 символов, состоит из символов a-z0-9\"._-;")
 
 					if checkNameTwoDots(s[0]) {
-						fmt.Println("5. OK: ", s[0], "В имени не допускаются две точки подряд;")
 
 						if checkNameTwoQuotes(s[0]) {
-							fmt.Println("6. OK: ", s[0], "Если в имени есть двойные кавычки \", то они должны быть парными;")
 
 							if checkNameExclameColon(s[0]) {
-								fmt.Println("7. OK: ", s[0], "В имени могут встречаться символы \"!,:\", но только между парными двойными кавычками.")
+								fmt.Println("OK: ", email)
 
 							} else {
 								fmt.Println("7. Error: ", s[0], "В имени могут встречаться символы \"!,:\", но только между парными двойными кавычками.")

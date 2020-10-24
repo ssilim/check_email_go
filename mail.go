@@ -20,10 +20,19 @@ import (
 
 const symbols = "abcdefghijklmnopqrstuvwxyz_-0123456789\"!:."
 
-var mail string = "test@yandex.ru"
-
 func main() {
-	checkEmail(mail)
+
+	mails := []string{"test@yandex.ru",
+		"test123@yandex.ru",
+		"tes._-t@yandex.ru",
+		"t\"e\"st@yandex.ru",
+		"test\"!\"@yandex.ru",
+		"te\":\"st@yandex.ru",
+	}
+
+	for _, i := range mails {
+		checkEmail(i)
+	}
 }
 
 func allowChars(s string, symb string) bool {
